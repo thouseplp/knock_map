@@ -88,8 +88,6 @@ unique_markets_df = appointments[['MARKET']].drop_duplicates()
 
 # Merge the dataframes on the full name
 merged_df = df_users.merge(
-    current_targets, left_on='FULL_NAME', right_on='CLOSER', how='left'
-).merge(
     appointments, left_on='FULL_NAME', right_on='NAME', how='left'
 ).merge(
     profile_picture, on='FULL_NAME', how='left'
@@ -105,7 +103,6 @@ if 'CLOSER' in merged_df.columns:
     merged_df = merged_df.drop(columns=['CLOSER'])
 
 # Fill NaN values and ensure correct data types
-merged_df['TARGET'] = merged_df['TARGET'].fillna(0).astype(int)
 merged_df['MARKET'] = merged_df['MARKET'].fillna('No Market').astype(str)
 merged_df['GOAL'] = merged_df['GOAL'].fillna(0).astype(int)
 merged_df['RANK'] = merged_df['RANK'].fillna(100).astype(int)
