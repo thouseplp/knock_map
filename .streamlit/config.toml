@@ -4,3 +4,6 @@ serverPort = 8501
 
 [global]
 hideStreamlitLogo = true  # This hides the entire Streamlit menu, which includes Fork, GitHub, and Settings
+
+[theme]
+base= "light"
